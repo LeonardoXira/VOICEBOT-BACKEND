@@ -1,0 +1,6 @@
+node_modules/
+audios/
+salidas/
+package-lock.json
+.env
+.vscode

@@ -1,8 +1,11 @@
 const fs = require('fs');
+const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
 const ffmpeg = require('fluent-ffmpeg');
 const { execSync } = require('child_process')
 const { postCall, postNewCall } = require('./api');
 const path = require('path');
+
+ffmpeg.setFfmpegPath(ffmpegPath);
 
 const newCall = async (req, res) => {
   try {
@@ -121,7 +124,7 @@ const base64ToWav = (base64, name) => {
 
     console.log('Archivo salida creada');
   } catch (error) {
-    console.error(error);
+    console.error('Error en base64ToWav ', error);
   }
 }
 
@@ -168,7 +171,7 @@ const convertMono = (req, res) => {
     convertAudio(inputPath, outputPath);
     res.send({ message: 'Conversión completada' });
   } catch (error) {
-    console.error(error);
+    console.error('Error en convertMono ', error);
   }
 }
 
