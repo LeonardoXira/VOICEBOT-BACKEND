@@ -4,3 +4,6 @@ salidas/
 package-lock.json
 .env
 .vscode
+
+# OS generated files
+.DS_Store
